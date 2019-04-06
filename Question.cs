@@ -7,13 +7,13 @@ namespace _418FinalProject.Models
     public class Question
     {
         //Constructors
-        public Question() 
-        { 
+        public Question()
+        {
         }
 
-        public Question(short quesionNumber, string questionText, string answer1, string answer1Text, 
-            string answer2, string answer2Text, string answer3, string answer3Text, string answer4, 
-            string answer4Text, short category, string img = null) 
+        public Question(short quesionNumber, string questionText, string answer1, string answer1Text,
+            string answer2, string answer2Text, string answer3, string answer3Text, string answer4,
+            string answer4Text, short category, string img = null)
         {
             QuestionNumber = quesionNumber;
             QuestionText = questionText;
@@ -31,30 +31,39 @@ namespace _418FinalProject.Models
         }
 
         //Properties
-        [Key]
-        [Required]
-        [Column(TypeName ="smallint")]
+        [Column(TypeName ="smallint"), Key]
         public short QuestionNumber { get; set; } //Primary Key
-        [Column(TypeName = "varchar(100)")]
+
+        [Column(TypeName = "varchar(100)"), StringLength(100), Required]
         public string QuestionText { get; set; }
-        [Column(TypeName = "varchar(2)")]
+
+        [Column(TypeName = "varchar(2)"), StringLength(100), Required]
         public string Answer1 { get; set; }
-        [Column(TypeName = "varchar(100)")]
+
+        [Column(TypeName = "varchar(100)"), StringLength(100), Required]
         public string Answer1Text { get; set; }
-        [Column(TypeName = "varchar(2)")]
+
+        [Column(TypeName = "varchar(2)"), StringLength(100), Required]
         public string Answer2 { get; set; }
-        [Column(TypeName = "varchar(100)")]
+
+        [Column(TypeName = "varchar(100)"), StringLength(100), Required]
         public string Answer2Text { get; set; }
-        [Column(TypeName = "varchar(2)")]
+
+        [Column(TypeName = "varchar(2)"), StringLength(100), Required]
         public string Answer3 { get; set; }
-        [Column(TypeName = "varchar(100)")]
+
+        [Column(TypeName = "varchar(100)"), StringLength(100), Required]
         public string Answer3Text { get; set; }
-        [Column(TypeName = "varchar(2)")]
+
+        [Column(TypeName = "varchar(2)"), StringLength(100), Required]
         public string Answer4 { get; set; }
-        [Column(TypeName = "varchar(100)")]
+
+        [Column(TypeName = "varchar(100)"), StringLength(100), Required]
         public string Answer4Text { get; set; }
-        [Column(TypeName = "varchar(100)")]
+
+        [Column(TypeName = "varchar(100)"), StringLength(100)]
         public string Image { get; set; }
+
         [Column(TypeName ="smallint")]
         public short Category { get; set; }
 
