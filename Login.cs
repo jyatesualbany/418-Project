@@ -35,6 +35,16 @@ namespace WindowsFormsApp9
         private void loginButton_Click(object sender, EventArgs e)
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            /*
+            builder.DataSource = "<server>.database.windows.net";
+            builder.UserID = "<username>";
+            builder.Password = "<password>";
+            builder.InitialCatalog = "<database>";
+            */
+            builder.DataSource = "testtaker.database.windows.net";
+            builder.UserID = "williamtdickinson";
+            builder.Password = "Ez5zgzwdw";
+            builder.InitialCatalog = "TestTaker";
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
@@ -49,7 +59,6 @@ namespace WindowsFormsApp9
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
-                        {
                             if ((reader.GetString(0) == usernameText.Text) && (reader.GetString(1) == passwordText.Text))
                             {
                                 this.Hide();    //if username and password exist in database go to main page
@@ -57,7 +66,7 @@ namespace WindowsFormsApp9
                                 m.Show();
                             }
                             else { MessageBox.Show("Incorrect username or password"); }    //if username or password doesnt exist in database dispaly error message
-                        }
+                        }   //need to fix this, gives error message for every incorrect row it checks
                         connection.Close();
                     }
                 }
@@ -65,4 +74,4 @@ namespace WindowsFormsApp9
            
         }
     }
-}
+
