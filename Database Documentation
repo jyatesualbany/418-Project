@@ -17,10 +17,18 @@ USER_NAME varchar(20) PRIMARY KEY,
 PASSWORD varchar(20) NOT NULL,
 ADMIN BIT NOT NULL
 );
-
 INSERT INTO Users VALUES('user_loser','password',0);
 INSERT INTO Users VALUES('user_admin','Betterpassword',1);
 
+
+CREATE TABLE User_Grades(
+USER_NAME varchar(20),
+TEST_ID int,
+GRADE int,
+FOREIGN KEY(USER_NAME) REFERENCES Users(USER_NAME),
+FOREIGN KEY(TEST_ID) REFERENCES Test_Titles(TEST_ID)
+);
+INSERT INTO User_Grades VALUES('user_loser',1,50);
 
 
 CREATE TABLE Questions(
@@ -33,7 +41,6 @@ ANS2 varchar(100),
 ANS3 varchar(100),
 ANS4 varchar(100)
 );
-
 INSERT INTO Questions VALUES(
 1,
 'Ducks',
@@ -55,13 +62,10 @@ INSERT INTO Questions(QUESTION_ID,CATEGORY,TRUE_FALSE,QUESTION_TEXT) VALUES(
 //If there is no asterix before the question in a true/false question text then the answer is false.
 
 
-
-
 CREATE TABLE Test_Titles(
 TEST_ID int PRIMARY KEY,
 TEST_TITLE varchar(20),
 );
-
 INSERT INTO Test_Titles VALUES (1, 'Duck Test #1');
 INSERT INTO Test_Titles VALUES (2, 'Math Test');
 
@@ -72,6 +76,5 @@ QUESTION_ID int,
 FOREIGN KEY(TEST_ID) REFERENCES Test_Titles(TEST_ID),
 FOREIGN KEY(QUESTION_ID) REFERENCES Questions(QUESTION_ID)
 );
-
 INSERT INTO Tests VALUES (1, 1);
 INSERT INTO Tests VALUES (1, 2);
