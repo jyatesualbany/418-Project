@@ -1,0 +1,64 @@
+TestTaker Database Documentation
+I’ve changed a couple of data type names. I also added the Test table like we talked about at the sprint planning meeting. Below is all the code I used to create them and fill them with test data. Feel free to take a look as you develop code for them.
+-Also, don’t forget that you guys can make a where clause to limit the search when you’re going through databases. I just realized Megan was using a C# loop to go through the whole thing, but that kind of makes the database pointless. Here’s an example…
+SELECT * FROM Users WHERE USER_NAME = 'user_admin';
+
+-Just in case, don’t forget that you can limit the search too by replacing the * with a Variable name. For example…
+
+SELECT PASSWORD FROM Users WHERE USER_NAME = 'user_admin';
+
+
+
+CREATE TABLE Users(
+USER_NAME varchar(20) PRIMARY KEY,
+PASSWORD varchar(20) NOT NULL,
+ADMIN BIT NOT NULL
+);
+
+INSERT INTO Users VALUES('user_loser','password',0);
+INSERT INTO Users VALUES('user_admin','Betterpassword',1);
+
+
+
+CREATE TABLE Questions(
+QUESTION_ID int PRIMARY KEY,
+CATEGORY varchar(20) NOT NULL,
+TRUE_FALSE BIT NOT NULL,
+QUESTION_TEXT varchar(100) NOT NULL,
+ANS1 varchar(100),
+ANS2 varchar(100),
+ANS3 varchar(100),
+ANS4 varchar(100)
+);
+
+INSERT INTO Questions VALUES(
+1,
+'Ducks',
+0,
+'What sound does a duck make?',
+'The walls have eyes',
+'Pikachu!',
+'Kermit the frog here!',
+'*Quack!'
+);
+//Asterix in front of answer means it is the correct one.
+
+INSERT INTO Questions(QUESTION_ID,CATEGORY,TRUE_FALSE,QUESTION_TEXT) VALUES(
+2,
+'Ducks',
+1,
+'Does Donald Duck wear pants?'
+);
+//If there is no asterix before the question in a true/false question text then the answer is false.
+
+
+
+
+CREATE TABLE Tests(
+TEST_TITLE varchar(20) NOT NULL,
+QUESTION_ID int,
+FOREIGN KEY(QUESTION_ID) REFERENCES Questions(QUESTION_ID)
+);
+
+INSERT INTO Tests VALUES ('The Duck Test', 1);
+INSERT INTO Tests VALUES ('The Duck Test', 2);
