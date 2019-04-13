@@ -1,10 +1,13 @@
 TestTaker Database Documentation
-I’ve changed a couple of data type names. I also added the Test table like we talked about at the sprint planning meeting. Below is all the code I used to create them and fill them with test data. Feel free to take a look as you develop code for them.
--Also, don’t forget that you guys can make a where clause to limit the search when you’re going through databases. I just realized Megan was using a C# loop to go through the whole thing, but that kind of makes the database pointless. Here’s an example…
+-I’ve changed a couple of data type names. I also added the Test table like we talked about at the sprint planning meeting. 
+Below is all the code I used to create them and fill them with test data. Feel free to take a look as you develop code for them.
+
+-Also, don’t forget that you guys can make a where clause to limit the search when you’re going through databases. 
+I just realized Megan was using a C# loop to go through the whole thing, but that kind of makes the database pointless. 
+Here’s an example…
 SELECT * FROM Users WHERE USER_NAME = 'user_admin';
 
--Just in case, don’t forget that you can limit the search too by replacing the * with a Variable name. For example…
-
+-Just in case, don’t forget that you can limit the search too by replacing the * with a Column name. For example…
 SELECT PASSWORD FROM Users WHERE USER_NAME = 'user_admin';
 
 
