@@ -34,10 +34,15 @@ CREATE TABLE User_Tests_In_Progress(
 USER_NAME varchar(20),
 TEST_ID int,
 QUESTION_ID int,
+SELECTED_ANSWER varchar(1),
 FOREIGN KEY(USER_NAME) REFERENCES Users(USER_NAME),
 FOREIGN KEY(TEST_ID) REFERENCES Test_Titles(TEST_ID),
 FOREIGN KEY(QUESTION_ID) REFERENCES Questions(QUESTION_ID)
 );
+//Here is where all the in progress test data will be stored. This will be a single table that will keep track of all the questions
+//that have been answered on incomplete tests.
+//Of important note: the SELECTED_ANSWER can be set to 'A','B','C', or 'D' for multiple choice or 'T' or 'F' for true or false.
+//Also, if it is left null that means that the answer wasn't filled in, although in that case the question won't even need to be stored.
 
 
 CREATE TABLE Questions(
