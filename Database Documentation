@@ -30,7 +30,7 @@ FOREIGN KEY(TEST_ID) REFERENCES Test_Titles(TEST_ID)
 );
 INSERT INTO User_Grades VALUES('user_loser',1,50);
 
-CREATE TABLE User_Tests_In_Progress(
+CREATE TABLE User_Questions_In_Progress(
 USER_NAME varchar(20),
 TEST_ID int,
 QUESTION_ID int,
