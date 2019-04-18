@@ -56,8 +56,11 @@ namespace WindowsFormsApp9
                                     break;
                                 }
                         }
+                        string insertCmd = "INSERT INTO Users (USER_NAME, PASSWORD) VALUES (@USER_NAME, @PASSWORD)";
+                        SqlCommand myCommand = new SqlCommand(insertCmd, connection);
+                        myCommand.Parameters.AddWithValue("@USER_NAME", usernameText.Text);
+                        myCommand.Parameters.AddWithValue("@PASSWORD", passwordText.Text);
                         MessageBox.Show("User created");
-
                         this.Hide();    //takes user back to login screen 
                         Login l = new Login();
                         l.Show();
