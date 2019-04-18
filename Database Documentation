@@ -29,6 +29,8 @@ ADMIN BIT NOT NULL
 INSERT INTO Users VALUES('user_loser','password',0);
 INSERT INTO Users VALUES('user_admin','Betterpassword',1);
 
+//For ADMIN, 0 = regular user, 1 = admin
+
 
 CREATE TABLE User_Grades(
 USER_NAME varchar(20),
