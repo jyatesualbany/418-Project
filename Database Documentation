@@ -1,4 +1,13 @@
 TestTaker Database Documentation
+
+//Here's the information needed to log in to the database.
+builder.DataSource = "testtaker.database.windows.net";
+builder.UserID = "user";
+builder.Password = "Password1";
+builder.InitialCatalog = "TestTaker";
+
+
+
 -I’ve changed a couple of data type names. I also added the Test table like we talked about at the sprint planning meeting. 
 Below is all the code I used to create them and fill them with test data. Feel free to take a look as you develop code for them.
 
