@@ -7,9 +7,9 @@ using _418FinalProject.Models;
 
 namespace _418FinalProject.Migrations
 {
-    [DbContext(typeof(QuesitonContext))]
-    [Migration("20190418194522_InitialCreate")]
-    partial class InitialCreate
+    [DbContext(typeof(DataBankContext))]
+    [Migration("20190420223409_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,52 +19,37 @@ namespace _418FinalProject.Migrations
 
             modelBuilder.Entity("_418FinalProject.Models.Question", b =>
                 {
-                    b.Property<int>("QuestionNumber")
+                    b.Property<int>("QuestionID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Answer1")
-                        .IsRequired()
-                        .HasColumnType("varchar(2)")
-                        .HasMaxLength(100);
+                        .HasColumnName("Question_ID");
 
                     b.Property<string>("Answer1Text")
                         .IsRequired()
+                        .HasColumnName("ANS1")
                         .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Answer2")
-                        .IsRequired()
-                        .HasColumnType("varchar(2)")
                         .HasMaxLength(100);
 
                     b.Property<string>("Answer2Text")
                         .IsRequired()
+                        .HasColumnName("ANS2")
                         .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Answer3")
-                        .IsRequired()
-                        .HasColumnType("varchar(2)")
                         .HasMaxLength(100);
 
                     b.Property<string>("Answer3Text")
                         .IsRequired()
+                        .HasColumnName("ANS3")
                         .HasColumnType("varchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<string>("Answer4")
-                        .IsRequired()
-                        .HasColumnType("varchar(2)")
                         .HasMaxLength(100);
 
                     b.Property<string>("Answer4Text")
                         .IsRequired()
+                        .HasColumnName("ANS4")
                         .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<short>("Category")
-                        .HasColumnType("smallint");
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Image")
                         .HasColumnType("varchar(100)")
@@ -72,12 +57,38 @@ namespace _418FinalProject.Migrations
 
                     b.Property<string>("QuestionText")
                         .IsRequired()
+                        .HasColumnName("Question_Text")
                         .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
-                    b.HasKey("QuestionNumber");
+                    b.Property<byte>("TrueFalse")
+                        .HasColumnName("True_False")
+                        .HasColumnType("bit");
 
-                    b.ToTable("Questions");
+                    b.HasKey("QuestionID");
+
+                    b.ToTable("Question");
+                });
+
+            modelBuilder.Entity("_418FinalProject.Models.User", b =>
+                {
+                    b.Property<string>("Username")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("USER_NAME")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnName("PASSWORD")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<bool>("Type")
+                        .HasColumnName("ADMIN")
+                        .HasColumnType("BIT");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("User");
                 });
 #pragma warning restore 612, 618
         }

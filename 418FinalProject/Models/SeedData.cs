@@ -9,12 +9,12 @@ namespace _418FinalProject.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new QuesitonContext(
+            using (var context = new DataBankContext(
                 serviceProvider.GetRequiredService<
-                    DbContextOptions<QuesitonContext>>()))
+                    DbContextOptions<DataBankContext>>()))
             {
                 // Look for any movies.
-                if (context.Questions.Any())
+                if ((context.Questions.Any())|| (context.Users.Any()))
                 {
                     return;   // DB has been seeded
                 }
@@ -22,68 +22,75 @@ namespace _418FinalProject.Models
                 context.Questions.AddRange(
                     new Question
                     {
-                        QuestionNumber = 1,
+                        QuestionID = 1,
                         QuestionText = "What is 1 + 1?",
-                        Answer1 = "a",
+                       
                         Answer1Text = "11",
-                        Answer2 = "b",
+
                         Answer2Text = "2",
-                        Answer3 = "c",
+
                         Answer3Text = "4",
-                        Answer4 = "d",
+                       
                         Answer4Text = "0",
-                        Category = 1
+                        Category = "Mathematics"
 
                     },
 
                     new Question
                     {
-                        QuestionNumber = 2,
+                        QuestionID = 2,
                         QuestionText = "How many numbers are there, between 1 and 100 that are both a perfect square and even?",
-                        Answer1 = "a",
+
                         Answer1Text = "0",
-                        Answer2 = "b",
+                       
                         Answer2Text = "2",
-                        Answer3 = "c",
+
                         Answer3Text = "5",
-                        Answer4 = "d",
+
                         Answer4Text = "10",
-                        Category = 2
+                        Category = "Mathematics"
 
                     },
 
                     new Question
                     {
-                        QuestionNumber = 3,
+                        QuestionID = 3,
                         QuestionText = "What is the common name for the Periodic element H2O?",
-                        Answer1 = "a",
+                       
                         Answer1Text = "Water",
-                        Answer2 = "b",
+                       
                         Answer2Text = "Salt",
-                        Answer3 = "c",
+                       
                         Answer3Text = "Vinegar",
-                        Answer4 = "d",
+
                         Answer4Text = "Sugar",
-                        Category = 1
+                        Category = "Chemistry"
 
                     },
 
                     new Question
                     {
-                        QuestionNumber = 4,
+                        QuestionID = 4,
                         QuestionText = "The war of 1812 took place in what year?",
-                        Answer1 = "a",
+
                         Answer1Text = "1218",
-                        Answer2 = "b",
+
                         Answer2Text = "1939",
-                        Answer3 = "c",
+                       
                         Answer3Text = "1812",
-                        Answer4 = "d",
+
                         Answer4Text = "1776",
-                        Category = 2
+                        Category = "History"
 
                     }
                 );
+                context.Users.Add(
+                new User
+                {
+                    Username = "John Jacob Jingleheimer Schmidt",
+                    Password = "mynameistoolong",
+                    Type = true
+                } );
                 context.SaveChanges();
             }
         }

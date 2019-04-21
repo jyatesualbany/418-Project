@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
 namespace _418FinalProject.Models
@@ -22,5 +23,8 @@ namespace _418FinalProject.Models
 
         [Column(TypeName = "integer"), ForeignKey("Question_ID")]
         public int QuestionRefID { get; set; }
+
+        [Column("Quesitions")]
+        public List<Question> Questions { get; set; }
     }
 }

@@ -3,25 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace _418FinalProject.Models
 {
+    [Table("Question")]
     public class Question
     {
         //Constructors
         public Question()
         {
-        }
-
-        public Question(int quesionID, string questionText, string answer1Text, string answer2Text, 
-            string answer3Text, string answer4Text, string category, string img = null)
-        {
-            QuestionID = quesionID;
-            QuestionText = questionText;
-            Answer1Text = answer1Text;
-            Answer2Text = answer2Text;
-            Answer3Text = answer3Text;
-            Answer4Text = answer4Text;
-            Image = img; //Since the image is an optional file I have set to be NULL if one isn't added
-            Category = category;
-
         }
 
         [Column("Question_ID"),Key]
@@ -51,7 +38,4 @@ namespace _418FinalProject.Models
         [Column(TypeName = "varchar(100)"), StringLength(100)]
         public string Image { get; set; }
     }
-
-
-
 }

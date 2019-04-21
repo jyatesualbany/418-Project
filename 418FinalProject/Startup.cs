@@ -29,8 +29,8 @@ namespace _418FinalProject
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<QuesitonContext>(options => 
-                options.UseSqlite(Configuration.GetConnectionString("QuestionContext")));
+            services.AddDbContext<DataBankContext>(options => 
+                options.UseSqlite(Configuration.GetConnectionString("DataBankContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -57,7 +57,7 @@ namespace _418FinalProject
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }

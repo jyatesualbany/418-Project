@@ -19,5 +19,12 @@ namespace _418FinalProject.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Index(User usr) 
+        {
+            return View();
+        }
+
     }
 }

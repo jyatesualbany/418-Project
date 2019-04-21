@@ -10,14 +10,9 @@ namespace _418FinalProject.Controllers
     public class QuestionController : Controller
     {
 
-        private readonly Models.QuesitonContext _context; //Database 
+        private DataBankContext _context; //Database 
 
-        public QuestionController() 
-        { 
-        
-        }
-
-        public QuestionController(Models.QuesitonContext context)
+        public QuestionController(DataBankContext context)
         {
             _context = context; //Setting the database
         }

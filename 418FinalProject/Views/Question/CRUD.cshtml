@@ -1,9 +1,12 @@
-﻿@model _418FinalProject.Models.Question;
-
+﻿@using _418FinalProject.Models;
+@model Question;
+<!--IEnumerable<Question>; -->
 @{
     ViewData["Title"] = "Questons";
+
 }
 
+<!-- Question Create, Read, Update and Delete View Template-->
 <h1>Details</h1>
 
 <div>
@@ -23,25 +26,25 @@
             @Html.DisplayFor(model => model.QuestionText)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Answer1)
+            @Html.DisplayNameFor(model => model.Answer1Text)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Answer1)
+            @Html.DisplayFor(model => model.Answer1Text)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Answer2)
+            @Html.DisplayNameFor(model => model.Answer2Text)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Answer2Text)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Answer3)
+            @Html.DisplayNameFor(model => model.Answer3Text)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Answer3Text)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Answer4)
+            @Html.DisplayNameFor(model => model.Answer4Text)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Answer4Text)
@@ -61,6 +64,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.QuestionNumber">Edit</a> |
+    <a asp-action="Edit" asp-route-id="@Model.QuestionID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<input type="file" id="myfile">
