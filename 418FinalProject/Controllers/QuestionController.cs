@@ -52,26 +52,27 @@ namespace _418FinalProject.Controllers
             return View(question);
         }
 
-        //GET: /admin/EditQuestion/{questionNumber}
-        public async Task<IActionResult> EditQuestion(int? questionNumber)
+        //GET: /question/EditQuestion/{id?}
+        public async Task<IActionResult> EditQuestion(int? id)
         {
-            if (questionNumber == null) { return NotFound(); }
+           
+            if (id == null) { return NotFound(); }
 
-            var question = await _context.Questions.FindAsync(questionNumber);
+            var question = await _context.Questions.FindAsync(id);
 
             if (question == null) { return NotFound(); }
 
-            return View(question);
+            return View("CRUD",question);
         }
 
-        //POST: /admin/EditQuestion/{questionNumber}
+        //POST: /question/EditQuestion/{id?}
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditQuestion(int questionID,
+        public async Task<IActionResult> EditQuestion(int id,
             [Bind("QuestonID, QuestionText, Answer1Text, Answer2Text" +
                 "Answer3Text, Answer4Text, Category, Image")] Question question)
         {
 
-            if (questionID != question.QuestionID) { return NotFound(); }
+            if (id != question.QuestionID) { return NotFound(); }
 
             if (ModelState.IsValid)
             {
@@ -82,7 +83,7 @@ namespace _418FinalProject.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    var temp = await _context.Questions.FindAsync(questionID);
+                    var temp = await _context.Questions.FindAsync(id);
 
                     if (temp == null) { return NotFound(); }
 
@@ -93,25 +94,25 @@ namespace _418FinalProject.Controllers
             return View(question);
         }
 
-        //GET: /admin/DeleteQuestion/questionNumber
-        public async Task<IActionResult> DeleteQuestion(int? questionID)
+        //GET: /admin/DeleteQuestion/{id?}
+        public async Task<IActionResult> DeleteQuestion(int? id)
         {
-            if (questionID == null) { return NotFound(); }
+            if (id == null) { return NotFound(); }
 
             var question = await _context.Questions.FirstOrDefaultAsync(
-            q => q.QuestionID == questionID);
+            q => q.QuestionID == id);
 
             if (question == null) { return NotFound(); }
 
             return View(question);
         }
 
-        //POST: /admin/DeleteQuestion/
+        //POST: /admin/DeleteQuestion/{id}
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteQuestionConfirmed(int questionNumber)
+        public async Task<IActionResult> DeleteQuestionConfirmed(int id)
         {
-            var question = await _context.Questions.FindAsync(questionNumber);
+            var question = await _context.Questions.FindAsync(id);
             _context.Questions.Remove(question);
             await _context.SaveChangesAsync();
 

@@ -1,12 +1,12 @@
-﻿@using _418FinalProject.Models;
+﻿@* Question Create, Read, Update and Delete View *@
+
+@using _418FinalProject.Models;
 @model Question;
-<!--IEnumerable<Question>; -->
+
 @{
     ViewData["Title"] = "Questons";
-
 }
 
-<!-- Question Create, Read, Update and Delete View Template-->
 <h1>Details</h1>
 
 <div>
@@ -67,5 +67,3 @@
     <a asp-action="Edit" asp-route-id="@Model.QuestionID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
-
-<input type="file" id="myfile">
