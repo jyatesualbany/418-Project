@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using _418FinalProject.Models;
@@ -31,7 +32,10 @@ namespace _418FinalProject.Controllers
             var usr = await _context.Users.FirstOrDefaultAsync(
             u => (u.Username == model.Username) && (u.Password == model.Password));
 
-            if (usr == null) { return NotFound(); }
+            if (usr == null) 
+            {
+                return NotFound(); 
+            }
 
             if (usr.Type == true) { return Redirect("/admin/index"); }
 

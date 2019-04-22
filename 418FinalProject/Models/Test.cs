@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _418FinalProject.Models
 {
+    [Table("Tests")]
     public class Test
     {
 
@@ -11,10 +12,11 @@ namespace _418FinalProject.Models
         { 
         }
 
-        public Test(int testID, int questionID) 
+        public Test(int testID, int questionID, Question question) 
         {
             TestRefID = testID;
             QuestionRefID = questionID;
+            Questions.Add(question);
         }
 
         [Column(TypeName ="integer"), ForeignKey("Test_ID")]

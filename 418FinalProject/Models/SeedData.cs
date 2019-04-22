@@ -84,13 +84,22 @@ namespace _418FinalProject.Models
 
                     }
                 );
-                context.Users.Add(
+                context.Users.AddRange(
                 new User
                 {
-                    Username = "John Jacob Jingleheimer Schmidt",
-                    Password = "mynameistoolong",
+                    Username = "User1",
+                    Password = "Password1",
                     Type = true
-                } );
+                },
+
+                new User
+                {
+                    Username = "User2",
+                    Password = "Password2",
+                    Type = false
+
+                }
+                 );
                 context.SaveChanges();
             }
         }

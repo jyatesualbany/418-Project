@@ -1,16 +1,32 @@
-﻿@model IEnumerable<_418FinalProject.Models.Question>
+﻿@* Admin Index View *@
 
 @{
     ViewData["Title"] = "Software Engineering - ICSI 418Y";
 }
 
-<!-- Admin Index View -->
+<style>
+    .admin {
+        display: inline-block;
+        padding: 5px 50px 5px 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 
-<h2>Users</h2>
+<div style="text-align: center">
+    <a class="admin"><h2>Users</h2></a> 
+    <a class="admin" href="/question/index"><h2 class="admin">Questions</h2></a>
+    <a class="admin"><h2>Tests</h2></a>
+</div>
 
-<h2>Questions</h2>
 
-<h2>Tests</h2>
+
+
+
+
+
+
+
 
 
 
