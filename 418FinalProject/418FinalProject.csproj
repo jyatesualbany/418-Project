@@ -25,5 +25,6 @@
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Question\" />
     <Folder Include="Views\NonAdmin\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
 </Project>
