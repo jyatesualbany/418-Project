@@ -26,8 +26,8 @@ USER_NAME varchar(20) PRIMARY KEY,
 PASSWORD varchar(20) NOT NULL,
 ADMIN BIT NOT NULL
 );
-INSERT INTO Users VALUES('user_loser','password',0);
-INSERT INTO Users VALUES('user_admin','Betterpassword',1);
+INSERT INTO Users VALUES('user_loser','pass',0);
+INSERT INTO Users VALUES('user_admin','pass',1);
 
 //For ADMIN, 0 = regular user, 1 = admin
 
