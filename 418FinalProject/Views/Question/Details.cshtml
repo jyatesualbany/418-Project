@@ -1,10 +1,10 @@
-﻿@* Question Create, Read, Update and Delete View *@
+﻿@* Question Detail View *@
 
 @using _418FinalProject.Models;
 @model Question;
 
 @{
-    ViewData["Title"] = "Questons";
+    ViewData["Title"] = "Question Details";
 }
 
 <h1>Details</h1>
@@ -64,6 +64,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.QuestionID">Edit</a> |
+    <a asp-action="EditQuestion" asp-route-id="@Model.QuestionID">Edit</a> |
+    <a asp-action="DeleteQuestion" asp-route-id="@Model.QuestionID">Delete</a> |
     <a asp-action="Index">Back to List</a>
 </div>

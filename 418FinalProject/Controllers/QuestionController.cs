@@ -34,12 +34,12 @@ namespace _418FinalProject.Controllers
         //GET: /admin/AddQuestion
         public IActionResult AddQuestion()
         {
-            return View();
+            return View(new Question());
         }
 
         //POST: /admin/AddQuestion/
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddQuestion([Bind("QuestonID, QuestionText, Answer1Text, Answer2Text" +
+        public async Task<IActionResult> AddQuestion([Bind("QuestonID, QuestionText, Answer1Text, Answer2Text," +
                 "Answer3Text, Answer4Text, Category, Image")]  Question question)
         {
             if (ModelState.IsValid)
@@ -62,17 +62,23 @@ namespace _418FinalProject.Controllers
 
             if (question == null) { return NotFound(); }
 
-            return View("CRUD",question);
+            return View(question);
         }
 
         //POST: /question/EditQuestion/{id?}
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> EditQuestion(int id,
-            [Bind("QuestonID, QuestionText, Answer1Text, Answer2Text" +
+            [Bind("QuestionID, QuestionText, Answer1Text, Answer2Text," +
                 "Answer3Text, Answer4Text, Category, Image")] Question question)
         {
 
-            if (id != question.QuestionID) { return NotFound(); }
+            if (id != question.QuestionID) {
+
+                var msg = string.Format("ID {0} {1} is null",id, question.QuestionID);
+
+                 return NotFound(msg); 
+                 
+                 }
 
             if (ModelState.IsValid)
             {
@@ -118,6 +124,23 @@ namespace _418FinalProject.Controllers
 
             return View(nameof(Index));
 
+        }
+        // GET: Movies/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var question = await _context.Questions
+                .FirstOrDefaultAsync(q => q.QuestionID == id);
+            if (question == null)
+            {
+                return NotFound();
+            }
+
+            return View(question);
         }
 
         [HttpPost]

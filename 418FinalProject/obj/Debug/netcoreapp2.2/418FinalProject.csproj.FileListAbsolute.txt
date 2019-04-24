@@ -61,6 +61,9 @@
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Admin/index.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Login/Index.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/Index.g.cshtml.cs
-/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/CRUD.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/NonAdmin/Index.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/Index.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/Details.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/EditQuestion.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/AddQuestion.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/DeleteQuestion.g.cshtml.cs
