@@ -67,10 +67,10 @@ QUESTION_ID int PRIMARY KEY,
 CATEGORY_ID int,
 TRUE_FALSE BIT NOT NULL,
 QUESTION_TEXT varchar(100) NOT NULL,
-ANS1 varchar(100),
-ANS2 varchar(100),
-ANS3 varchar(100),
-ANS4 varchar(100),
+ANS1 varchar(100) NOT NULL,
+ANS2 varchar(100) NOT NULL,
+ANS3 varchar(100) NOT NULL,
+ANS4 varchar(100) NOT NULL,
 FOREIGN KEY(CATEGORY_ID) REFERENCES Question_Catagories(CATEGORY_ID)
 );
 INSERT INTO Questions VALUES(
@@ -89,7 +89,11 @@ INSERT INTO Questions(QUESTION_ID,CATEGORY_ID,TRUE_FALSE,QUESTION_TEXT) VALUES(
 2,
 1,
 1,
-'Does Donald Duck wear pants?'
+'Does Donald Duck wear pants?',
+'',
+'',
+'',
+''
 );
 //If there is no asterix before the question in a true/false question text then the answer is false.
 
