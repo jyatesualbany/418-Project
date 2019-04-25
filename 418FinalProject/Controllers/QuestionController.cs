@@ -115,7 +115,7 @@ namespace _418FinalProject.Controllers
         }
 
         //POST: /admin/DeleteQuestion/{id}
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteQuestion")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteQuestionConfirmed(int id)
         {
