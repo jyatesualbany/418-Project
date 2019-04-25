@@ -58,7 +58,7 @@ FOREIGN KEY(QUESTION_ID) REFERENCES Questions(QUESTION_ID)
 
 CREATE TABLE Question_Categories(
 CATEGORY_ID int PRIMARY KEY,
-CATEGORY varchar(20),
+CATEGORY_NAME varchar(20),
 );
 INSERT INTO Question_Categories VALUES (1, 'Ducks');
 INSERT INTO Question_Categories VALUES (2, 'Math');
