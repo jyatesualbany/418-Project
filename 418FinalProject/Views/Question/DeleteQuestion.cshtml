@@ -13,8 +13,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Are you sure you would like to delete the following question and all its data?</h1>
-
+<h1>Delete</h1>
+<h2>Are you sure you would like to delete the following question and all its data?</h2>
+<hr/>
 <div>
     <h4>Questions</h4>
     <hr />
@@ -69,6 +70,12 @@
         </dd>
     </dl>
 </div>
+<form asp-action="Delete">
+    <div class="form-group">
+        <input type="hidden" asp-for="QuestionID" />
+        <input type="submit" value="Delete" class="btn btn-primary" />
+    </div>
+</form>
 <div>
     <a asp-action="EditQuestion" asp-route-id="@Model.QuestionID">Edit</a> |
     <a asp-action="Index">Back to List</a>

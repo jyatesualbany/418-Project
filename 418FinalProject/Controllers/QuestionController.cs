@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -56,11 +57,11 @@ namespace _418FinalProject.Controllers
         public async Task<IActionResult> EditQuestion(int? id)
         {
            
-            if (id == null) { return NotFound(); }
+            if (id == null) return NotFound();
 
             var question = await _context.Questions.FindAsync(id);
 
-            if (question == null) { return NotFound(); }
+            if (question == null) return NotFound();
 
             return View(question);
         }
@@ -103,12 +104,12 @@ namespace _418FinalProject.Controllers
         //GET: /admin/DeleteQuestion/{id?}
         public async Task<IActionResult> DeleteQuestion(int? id)
         {
-            if (id == null) { return NotFound(); }
+            if (id == null) return NotFound();
 
             var question = await _context.Questions.FirstOrDefaultAsync(
             q => q.QuestionID == id);
 
-            if (question == null) { return NotFound(); }
+            if (question == null) return NotFound();
 
             return View(question);
         }
@@ -118,27 +119,30 @@ namespace _418FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteQuestionConfirmed(int id)
         {
+
             var question = await _context.Questions.FindAsync(id);
+
+            if (question == null)
+            {
+                var msg = string.Format("No ID {0} found", id);
+                return NotFound(msg);
+            }
+
             _context.Questions.Remove(question);
             await _context.SaveChangesAsync();
 
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
 
         }
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var question = await _context.Questions
                 .FirstOrDefaultAsync(q => q.QuestionID == id);
-            if (question == null)
-            {
-                return NotFound();
-            }
+
+            if (question == null) return NotFound();
 
             return View(question);
         }

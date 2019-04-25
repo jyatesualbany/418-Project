@@ -26,7 +26,7 @@ namespace _418FinalProject.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> UserLogin(LoginViewModel model)
+        public IActionResult UserLogin(LoginViewModel model)
         {
             /*
             var usr = await _context.Users.FirstOrDefaultAsync(
@@ -39,12 +39,12 @@ namespace _418FinalProject.Controllers
             
             if (usr.Type == true) { return Redirect("/admin/index"); }
             */
+
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "testtaker.database.windows.net";
             builder.UserID = "user";
             builder.Password = "Password1";
             builder.InitialCatalog = "TestTaker";
-
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
@@ -68,7 +68,6 @@ namespace _418FinalProject.Controllers
                     connection.Close();
                 }
             }
-            //if (true) { return Redirect("/admin/index"); }
 
             return NotFound();
         }

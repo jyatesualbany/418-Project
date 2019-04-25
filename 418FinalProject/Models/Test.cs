@@ -12,20 +12,16 @@ namespace _418FinalProject.Models
         { 
         }
 
-        public Test(int testID, int questionID, Question question) 
-        {
-            TestRefID = testID;
-            QuestionRefID = questionID;
-            Questions.Add(question);
-        }
+        [Column("Test ID",TypeName = "integer"), Key]
+        public int TestID { get; set; }
 
-        [Column(TypeName ="integer"), ForeignKey("Test_ID")]
+        [Column(TypeName ="integer")]
         public int TestRefID { get; set; }
 
 
-        [Column(TypeName = "integer"), ForeignKey("Question_ID")]
+        [Column(TypeName = "integer")]
         public int QuestionRefID { get; set; }
-
+     
         [Column("Quesitions")]
         public List<Question> Questions { get; set; }
     }
