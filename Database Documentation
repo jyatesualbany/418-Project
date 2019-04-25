@@ -40,7 +40,7 @@ GRADE int,
 FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID),
 FOREIGN KEY(TEST_ID) REFERENCES Test_Titles(TEST_ID)
 );
-INSERT INTO User_Grades VALUES('user_loser',1,50);
+INSERT INTO User_Grades VALUES(0,1,50);
 
 CREATE TABLE User_Questions_In_Progress(
 USER_ID int,
