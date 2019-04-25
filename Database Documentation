@@ -84,9 +84,8 @@ INSERT INTO Questions VALUES(
 'Kermit the frog here!',
 '*Quack!'
 );
-//Asterix in front of answer means it is the correct one.
 
-INSERT INTO Questions(QUESTION_ID,CATEGORY_ID,TRUE_FALSE,QUESTION_TEXT) VALUES(
+INSERT INTO Questions VALUES(
 2,
 1,
 1,
