@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -121,12 +120,6 @@ namespace _418FinalProject.Controllers
         {
 
             var question = await _context.Questions.FindAsync(id);
-
-            if (question == null)
-            {
-                var msg = string.Format("No ID {0} found", id);
-                return NotFound(msg);
-            }
 
             _context.Questions.Remove(question);
             await _context.SaveChangesAsync();
