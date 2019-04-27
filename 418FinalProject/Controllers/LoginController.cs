@@ -28,17 +28,6 @@ namespace _418FinalProject.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> UserLogin(LoginViewModel model)
         {
-            /*
-            var usr = await _context.Users.FirstOrDefaultAsync(
-            
-            u => (u.Username == model.Username) && (u.Password == model.Password));
-            if (usr == null) 
-            {
-                return NotFound(); 
-            }
-            
-            if (usr.Type == true) { return Redirect("/admin/index"); }
-            */
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "testtaker.database.windows.net";
             builder.UserID = "user";
@@ -64,11 +53,10 @@ namespace _418FinalProject.Controllers
                                 else return Redirect("/NonAdmin/Index");
                             }
 
-                    }   //need to fix this, gives error message for every incorrect row it checks
+                    }
                     connection.Close();
                 }
             }
-            //if (true) { return Redirect("/admin/index"); }
 
             return NotFound();
         }
