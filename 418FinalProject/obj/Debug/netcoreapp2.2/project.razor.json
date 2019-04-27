@@ -1,0 +1,124 @@
+{
+  "FilePath": "/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/418FinalProject.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-2.1",
+    "LanguageVersion": "2.1",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-2.1"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": "_418FinalProject",
+  "Documents": [
+    {
+      "FilePath": "Views/User/Index.cshtml",
+      "TargetPath": "Views/User/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Question/DeleteQuestion.cshtml",
+      "TargetPath": "Views/Question/DeleteQuestion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/User/AddUser.cshtml",
+      "TargetPath": "Views/User/AddUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Admin/index.cshtml",
+      "TargetPath": "Views/Admin/index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/Privacy.cshtml",
+      "TargetPath": "Views/Home/Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/User/EditUser.cshtml",
+      "TargetPath": "Views/User/EditUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Question/AddQuestion.cshtml",
+      "TargetPath": "Views/Question/AddQuestion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Question/Details.cshtml",
+      "TargetPath": "Views/Question/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/User/Details.cshtml",
+      "TargetPath": "Views/User/Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Question/Index.cshtml",
+      "TargetPath": "Views/Question/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/User/DeleteUser.cshtml",
+      "TargetPath": "Views/User/DeleteUser.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Question/EditQuestion.cshtml",
+      "TargetPath": "Views/Question/EditQuestion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_CookieConsentPartial.cshtml",
+      "TargetPath": "Views/Shared/_CookieConsentPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Home/Index.cshtml",
+      "TargetPath": "Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/NonAdmin/Index.cshtml",
+      "TargetPath": "Views/NonAdmin/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views/Shared/_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/Error.cshtml",
+      "TargetPath": "Views/Shared/Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/_ViewImports.cshtml",
+      "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Login/Index.cshtml",
+      "TargetPath": "Views/Login/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/_ViewStart.cshtml",
+      "TargetPath": "Views/_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    }
+  ]
+}
