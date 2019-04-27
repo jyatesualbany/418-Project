@@ -1,0 +1,77 @@
+﻿@* Question Detail View *@
+
+@using _418FinalProject.Models;
+@model Question;
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+<h2>Are you sure you would like to delete the following question and all its data?</h2>
+<hr/>
+<div>
+    <h4>Questions</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestionID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuestionID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuestionText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuestionText)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Answer1Text)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Answer1Text)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Answer2Text)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Answer2Text)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Answer3Text)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Answer3Text)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Answer4Text)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Answer4Text)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+    </dl>
+</div>
+<form asp-action="DeleteQuestion">
+    <div class="form-group">
+        <input type="hidden" asp-for="QuestionID" />
+        <input type="submit" value="Delete" class="btn btn-primary" />
+    </div>
+</form>
+<div>
+    <a asp-action="EditQuestion" asp-route-id="@Model.QuestionID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
