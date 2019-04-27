@@ -27,10 +27,48 @@ namespace _418FinalProject.Controllers
 
         //Home page
         // GET: /<controller>/
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "testtaker.database.windows.net";
+            builder.UserID = "user";
+            builder.Password = "Password1";
+            builder.InitialCatalog = "TestTaker";
 
-            return View(await _context.Questions.ToListAsync());
+            List<Question> qs = new List<Question>();
+
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+                String sql = "SELECT * FROM Questions;";
+
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            qs.Add
+                            (
+                                new Question
+                                {
+                                    QuestionID = reader.GetInt32(0),
+                                    Category = Convert.ToString(reader.GetInt32(1)),
+                                    TrueFalse = reader.GetBoolean(2),
+                                    QuestionText = reader.GetString(3),
+                                    Answer1Text = reader.GetString(4),
+                                    Answer2Text = reader.GetString(5),
+                                    Answer3Text = reader.GetString(6),
+                                    Answer4Text = reader.GetString(7)
+                                }
+                            );
+                    }
+                    connection.Close();
+                }
+            }
+
+            return View(qs);
         }
 
         //Page 
