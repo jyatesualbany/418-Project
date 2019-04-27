@@ -71,3 +71,46 @@
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/DeleteUser.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/Details.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/EditUser.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.deps.json
+C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.runtimeconfig.json
+C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.runtimeconfig.dev.json
+C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.dll
+C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.pdb
+C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.Views.dll
+C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.Views.pdb
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.csprojAssemblyReference.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.csproj.CoreCompileInputs.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.RazorAssemblyInfo.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.RazorAssemblyInfo.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.AssemblyInfoInputs.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.AssemblyInfo.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.TagHelpers.input.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.TagHelpers.output.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.RazorCoreGenerate.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Admin\index.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Login\Index.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\NonAdmin\Index.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Question\AddQuestion.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Question\DeleteQuestion.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Question\Details.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Question\EditQuestion.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Question\Index.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\User\AddUser.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\User\DeleteUser.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\User\Details.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\User\EditUser.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\User\Index.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.g.cshtml.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.RazorTargetAssemblyInfo.cache
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.RazorTargetAssemblyInfo.cs
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.Views.pdb
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.dll
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.pdb
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.csproj.CopyComplete

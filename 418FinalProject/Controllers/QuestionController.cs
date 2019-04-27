@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using _418FinalProject.Models;
+using System.Data.SqlClient;
+using System;
+using System.Data;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,13 +42,43 @@ namespace _418FinalProject.Controllers
 
         //POST: /admin/AddQuestion/
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddQuestion([Bind("QuestonID, QuestionText, Answer1Text, Answer2Text," +
+        public IActionResult AddQuestion([Bind("QuestionID, QuestionText, Answer1Text, Answer2Text," +
                 "Answer3Text, Answer4Text, Category, Image")]  Question question)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(question);
-                await _context.SaveChangesAsync();
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "testtaker.database.windows.net";
+                builder.UserID = "user";
+                builder.Password = "Password1";
+                builder.InitialCatalog = "TestTaker";
+
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+                    connection.Open();
+                    String sql = "INSERT INTO Questions VALUES(@QUESTION_ID,@CATEGORY_ID,@TRUE_FALSE,@QUESTION_TEXT,@ANS1," +
+                        "@ANS2,@ANS3,@ANS4);";
+
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+
+                        command.Connection = connection;
+
+                        command.Parameters.AddWithValue("@QUESTION_ID", question.QuestionID);
+                        command.Parameters.AddWithValue("@CATEGORY_ID", 1);
+                        command.Parameters.AddWithValue("@TRUE_FALSE", false);
+                        command.Parameters.AddWithValue("@QUESTION_TEXT", question.QuestionText);
+                        command.Parameters.AddWithValue("@ANS1", question.Answer1Text);
+                        command.Parameters.AddWithValue("@ANS2", question.Answer2Text);
+                        command.Parameters.AddWithValue("@ANS3", question.Answer3Text);
+                        command.Parameters.AddWithValue("@ANS4", question.Answer4Text);
+
+                        int recordsAffected = command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
                 return RedirectToAction(nameof(Index));
             }
 
