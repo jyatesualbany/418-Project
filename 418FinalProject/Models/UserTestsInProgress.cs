@@ -17,13 +17,16 @@ namespace _418FinalProject.Models
             SelectedAnswer = selectedAnswer;
         }
 
-        [Column(TypeName ="varchar(20)"), ForeignKey("User_Name")]
+        [Column("User Test In Progress"), Key]
+        public int UserTestInProgress { get; set; }
+
+        [Column(TypeName ="varchar(20)")]
         public string UserNameRef { get; set; }
 
-        [Column(TypeName ="integer"), ForeignKey("Test_ID")]
+        [Column(TypeName ="integer")]
         public int TestID { get; set; }
 
-        [Column(TypeName = "integer"), ForeignKey("Question_ID")]
+        [Column(TypeName = "integer")]
         public int QuestionID { get; set; }
 
         [Column(TypeName = "varchar(20)")]

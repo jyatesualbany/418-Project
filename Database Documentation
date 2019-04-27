@@ -22,31 +22,32 @@ SELECT PASSWORD FROM Users WHERE USER_NAME = 'user_admin';
 
 
 CREATE TABLE Users(
-USER_NAME varchar(20) PRIMARY KEY,
+USER_ID int PRIMARY KEY,
+USER_NAME varchar(20) NOT NULL,
 PASSWORD varchar(20) NOT NULL,
 ADMIN BIT NOT NULL
 );
-INSERT INTO Users VALUES('user_loser','pass',0);
-INSERT INTO Users VALUES('user_admin','pass',1);
+INSERT INTO Users VALUES(0,'user_loser','pass',0);
+INSERT INTO Users VALUES(1,'user_admin','pass',1);
 
 //For ADMIN, 0 = regular user, 1 = admin
 
 
 CREATE TABLE User_Grades(
-USER_NAME varchar(20),
+USER_ID int,
 TEST_ID int,
 GRADE int,
-FOREIGN KEY(USER_NAME) REFERENCES Users(USER_NAME),
+FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID),
 FOREIGN KEY(TEST_ID) REFERENCES Test_Titles(TEST_ID)
 );
-INSERT INTO User_Grades VALUES('user_loser',1,50);
+INSERT INTO User_Grades VALUES(0,1,50);
 
 CREATE TABLE User_Questions_In_Progress(
-USER_NAME varchar(20),
+USER_ID int,
 TEST_ID int,
 QUESTION_ID int,
 SELECTED_ANSWER varchar(1),
-FOREIGN KEY(USER_NAME) REFERENCES Users(USER_NAME),
+FOREIGN KEY(USER_ID) REFERENCES Users(USER_ID),
 FOREIGN KEY(TEST_ID) REFERENCES Test_Titles(TEST_ID),
 FOREIGN KEY(QUESTION_ID) REFERENCES Questions(QUESTION_ID)
 );
@@ -55,20 +56,27 @@ FOREIGN KEY(QUESTION_ID) REFERENCES Questions(QUESTION_ID)
 //Of important note: the SELECTED_ANSWER can be set to 'A','B','C', or 'D' for multiple choice or 'T' or 'F' for true or false.
 //Also, if it is left null that means that the answer wasn't filled in, although in that case the question won't even need to be stored.
 
+CREATE TABLE Question_Categories(
+CATEGORY_ID int PRIMARY KEY,
+CATEGORY_NAME varchar(20),
+);
+INSERT INTO Question_Categories VALUES (1, 'Ducks');
+INSERT INTO Question_Categories VALUES (2, 'Math');
 
 CREATE TABLE Questions(
 QUESTION_ID int PRIMARY KEY,
-CATEGORY varchar(20) NOT NULL,
+CATEGORY_ID int,
 TRUE_FALSE BIT NOT NULL,
 QUESTION_TEXT varchar(100) NOT NULL,
-ANS1 varchar(100),
-ANS2 varchar(100),
-ANS3 varchar(100),
-ANS4 varchar(100)
+ANS1 varchar(100) NOT NULL,
+ANS2 varchar(100) NOT NULL,
+ANS3 varchar(100) NOT NULL,
+ANS4 varchar(100) NOT NULL,
+FOREIGN KEY(CATEGORY_ID) REFERENCES Question_Categories(CATEGORY_ID)
 );
 INSERT INTO Questions VALUES(
 1,
-'Ducks',
+1,
 0,
 'What sound does a duck make?',
 'The walls have eyes',
@@ -76,13 +84,16 @@ INSERT INTO Questions VALUES(
 'Kermit the frog here!',
 '*Quack!'
 );
-//Asterix in front of answer means it is the correct one.
 
-INSERT INTO Questions(QUESTION_ID,CATEGORY,TRUE_FALSE,QUESTION_TEXT) VALUES(
+INSERT INTO Questions VALUES(
 2,
-'Ducks',
 1,
-'Does Donald Duck wear pants?'
+1,
+'Does Donald Duck wear pants?',
+'',
+'',
+'',
+''
 );
 //If there is no asterix before the question in a true/false question text then the answer is false.
 

@@ -1,10 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-@* Question Detail View *@
+﻿@* Question Detail View *@
 
 @using _418FinalProject.Models;
 @model Question;
@@ -13,8 +7,9 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Are you sure you would like to delete the following question and all its data?</h1>
-
+<h1>Delete</h1>
+<h2>Are you sure you would like to delete the following question and all its data?</h2>
+<hr/>
 <div>
     <h4>Questions</h4>
     <hr />
@@ -69,6 +64,12 @@
         </dd>
     </dl>
 </div>
+<form asp-action="DeleteQuestion">
+    <div class="form-group">
+        <input type="hidden" asp-for="QuestionID" />
+        <input type="submit" value="Delete" class="btn btn-primary" />
+    </div>
+</form>
 <div>
     <a asp-action="EditQuestion" asp-route-id="@Model.QuestionID">Edit</a> |
     <a asp-action="Index">Back to List</a>

@@ -16,13 +16,14 @@ namespace _418FinalProject.Models
             Grade = grade; 
         }
 
-        [Column(TypeName ="varchar(20)"), ForeignKey("User_Name")]
+        [Column(TypeName ="varchar(20)"), Required]
         public string UserRefName { get; set; }
 
-        [Column(TypeName = "integer"), ForeignKey("Test_ID")]
+        [Column(TypeName = "integer"), Required]
         public int TestRefID { get; set; }
 
-        [Column(TypeName = "integer"), Required]
+        [Column(TypeName = "integer"), Key, Required]
         public int Grade{ get; set; }
     }
 }
+

@@ -26,14 +26,28 @@ namespace _418FinalProject.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> UserLogin(LoginViewModel model)
+        public IActionResult UserLogin(LoginViewModel model)
         {
+<<<<<<< HEAD
+=======
+            /*
+            var usr = await _context.Users.FirstOrDefaultAsync(
+            
+            u => (u.Username == model.Username) && (u.Password == model.Password));
+            if (usr == null) 
+            {
+                return NotFound(); 
+            }
+            
+            if (usr.Type == true) { return Redirect("/admin/index"); }
+            */
+
+>>>>>>> 1b313d5a3de642e24709b3dd674294eea81a8d05
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "testtaker.database.windows.net";
             builder.UserID = "user";
             builder.Password = "Password1";
             builder.InitialCatalog = "TestTaker";
-
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {

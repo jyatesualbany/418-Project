@@ -56,8 +56,15 @@ namespace _418FinalProject
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "User",
+                    template: "User/{action}/{name?}",
+                    defaults: new { controller = "User", action = "Index", id = ""}
+                    );
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Login}/{action=Index}/{id?}");
+
             });
         }
     }

@@ -67,6 +67,7 @@
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/EditQuestion.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/AddQuestion.g.cshtml.cs
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/Question/DeleteQuestion.g.cshtml.cs
+<<<<<<< HEAD
 C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.deps.json
 C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.runtimeconfig.json
 C:\Users\wdick\Desktop\418-Project\418FinalProject\bin\Debug\netcoreapp2.2\418FinalProject.runtimeconfig.dev.json
@@ -106,3 +107,9 @@ C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418Fi
 C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.dll
 C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.pdb
 C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.csproj.CopyComplete
+=======
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/AddUser.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/DeleteUser.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/Details.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/MyWebApp/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/User/EditUser.g.cshtml.cs
+>>>>>>> 1b313d5a3de642e24709b3dd674294eea81a8d05
