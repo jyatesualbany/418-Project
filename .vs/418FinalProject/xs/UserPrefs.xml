@@ -1,17 +1,14 @@
 ﻿<Properties StartupConfiguration="{5693D151-D573-4DBC-A81B-6A3521976636}|Default">
   <MonoDevelop.Ide.ItemProperties.418FinalProject PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="418FinalProject/Controllers/QuestionController.cs">
-    <Files>
-      <File FileName="418FinalProject/Controllers/QuestionController.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="418FinalProject" expanded="True">
             <Node name="418FinalProject" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" selected="True" />
-              <Node name="Views" expanded="True" />
+              <Node name="Dependencies" expanded="True">
+                <Node name="SdkDependencies" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
