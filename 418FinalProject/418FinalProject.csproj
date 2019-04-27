@@ -26,6 +26,7 @@
     <Folder Include="Views\Question\" />
     <Folder Include="Views\NonAdmin\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\AdminTest\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Migrations\20190420223409_Initial.cs" />
