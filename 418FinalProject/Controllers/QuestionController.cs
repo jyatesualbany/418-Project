@@ -95,17 +95,50 @@ namespace _418FinalProject.Controllers
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     connection.Open();
-                    String sql = "INSERT INTO Questions VALUES(@QUESTION_ID,@CATEGORY_ID,@TRUE_FALSE,@QUESTION_TEXT,@ANS1," +
-                        "@ANS2,@ANS3,@ANS4);";
 
+                    String sql = "SELECT MAX(CATEGORY_ID) FROM Question_Categories;";
+                    int next_ID = 0;
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-
                         command.Connection = connection;
 
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                                next_ID = reader.GetInt32(0) + 1;
+                        }
+                    }
+                    connection.Close();
+
+                    sql = "INSERT INTO Question_Categories VALUES(@CATEGORY_ID,@CATEGORY_NAME);";
+
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Connection = connection;
+                        command.Parameters.AddWithValue("@CATEGORY_ID", next_ID);
+                        command.Parameters.AddWithValue("@CATEGORY_NAME", question.Category);
+
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+
+
+                    connection.Open();
+
+                        sql = "INSERT INTO Questions VALUES(@QUESTION_ID,@CATEGORY_ID,@TRUE_FALSE,@QUESTION_TEXT,@ANS1," +
+                        "@ANS2,@ANS3,@ANS4);";
+
+                        using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Connection = connection;
+                        
+
                         command.Parameters.AddWithValue("@QUESTION_ID", question.QuestionID);
-                        command.Parameters.AddWithValue("@CATEGORY_ID", 1);
+                        //command.Parameters.AddWithValue("@CATEGORY_ID", 1);
+                        command.Parameters.AddWithValue("@CATEGORY_ID", next_ID);
                         command.Parameters.AddWithValue("@TRUE_FALSE", false);
                         command.Parameters.AddWithValue("@QUESTION_TEXT", question.QuestionText);
                         command.Parameters.AddWithValue("@ANS1", question.Answer1Text);

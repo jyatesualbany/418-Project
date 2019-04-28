@@ -28,7 +28,6 @@ namespace _418FinalProject.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult UserLogin(LoginViewModel model)
         {
-
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "testtaker.database.windows.net";
             builder.UserID = "user";
@@ -53,7 +52,7 @@ namespace _418FinalProject.Controllers
                                 else return Redirect("/NonAdmin/Index");
                             }
 
-                    }   //need to fix this, gives error message for every incorrect row it checks
+                    }
                     connection.Close();
                 }
             }
