@@ -41,7 +41,9 @@ namespace _418FinalProject.Controllers
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 connection.Open();
-                String sql = "SELECT * FROM Questions;";
+                String sql = "SELECT a.QUESTION_ID,b.CATEGORY_NAME,a.TRUE_FALSE,a.QUESTION_TEXT,a.ANS1,a.ANS2,a.ANS3,a.ANS4"
+                + " FROM Questions a, Question_Categories b"
+                + " LEFT JOIN Questions ON QUESTION_ID = b.CATEGORY_ID;";
                 //int cat_id = 0;
 
 
@@ -55,7 +57,8 @@ namespace _418FinalProject.Controllers
                                 new Question
                                 {
                                     QuestionID = reader.GetInt32(0),
-                                    Category = Convert.ToString(reader.GetInt32(1)),
+                                    //Category = Convert.ToString(reader.GetInt32(1)),
+                                    Category = reader.GetString(1),
                                     TrueFalse = reader.GetBoolean(2),
                                     QuestionText = reader.GetString(3),
                                     Answer1Text = reader.GetString(4),
@@ -68,6 +71,8 @@ namespace _418FinalProject.Controllers
                     connection.Close();
                 }
             }
+
+
 
             return View(qs);
         }
