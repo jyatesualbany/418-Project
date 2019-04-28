@@ -158,3 +158,4 @@ C:/Users/wdick/Desktop/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/418Fi
 C:/Users/wdick/Desktop/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/418FinalProject.csproj.CopyComplete
 C:/Users/wdick/Desktop/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/418FinalProject.csprojAssemblyReference.cache
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/AdminTest/Index.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/AdminTest/AddTest.g.cshtml.cs
