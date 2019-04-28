@@ -1,0 +1,42 @@
+﻿@* Test Index View *@
+@using _418FinalProject.Models;
+@model IEnumerable<Test>;
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<p>
+    <a asp-action="AddTest">Create New Test</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TestID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestTitle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestTitle)
+                </td>
+                <td>
+                    <a asp-action="EditTest" asp-route-id="@item.TestID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TestID">Details</a> |
+                    <a asp-action="DeleteTest" asp-route-id="@item.TestID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

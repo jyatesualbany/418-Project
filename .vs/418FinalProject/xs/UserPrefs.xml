@@ -1,25 +1,24 @@
 ﻿<Properties StartupConfiguration="{5693D151-D573-4DBC-A81B-6A3521976636}|Default">
   <MonoDevelop.Ide.ItemProperties.418FinalProject PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="418FinalProject/Controllers/UserController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="418FinalProject/Views/Question/Index.cshtml">
     <Files>
-      <File FileName="418FinalProject/Controllers/QuestionController.cs" Line="1" Column="1" />
-      <File FileName="../418-Project Backup/418FinalProject/Controllers/TestController.cs" Line="58" Column="11" />
-      <File FileName="418FinalProject/Views/Question/AddQuestion.cshtml" Line="16" Column="79" />
-      <File FileName="418FinalProject/Views/Question/EditQuestion.cshtml" Line="1" Column="1" />
-      <File FileName="418FinalProject/Views/User/AddUser.cshtml" Line="1" Column="1" />
-      <File FileName="418FinalProject/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="418FinalProject/Controllers/QuestionController.cs" Line="31" Column="10" />
+      <File FileName="418FinalProject/Controllers/AdminTestController.cs" Line="109" Column="10" />
+      <File FileName="418FinalProject/Views/AdminTest/AddTest.cshtml" Line="60" Column="27" />
+      <File FileName="418FinalProject/Views/Question/Index.cshtml" Line="31" Column="18" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="418FinalProject" expanded="True">
             <Node name="418FinalProject" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True">
-                <Node name="UserController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="User" expanded="True" />
+                <Node name="AdminTest" expanded="True" />
+                <Node name="Question" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
