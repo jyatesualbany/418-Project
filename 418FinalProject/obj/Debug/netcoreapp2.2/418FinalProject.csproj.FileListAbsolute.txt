@@ -160,3 +160,4 @@ C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418Fi
 C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.dll
 C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.pdb
 C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.csproj.CopyComplete
+C:\Users\wdick\Desktop\418-Project\418FinalProject\obj\Debug\netcoreapp2.2\418FinalProject.csprojAssemblyReference.cache

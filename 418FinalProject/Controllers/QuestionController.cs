@@ -42,6 +42,7 @@ namespace _418FinalProject.Controllers
             {
                 connection.Open();
                 String sql = "SELECT * FROM Questions;";
+                //int cat_id = 0;
 
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
@@ -91,40 +92,75 @@ namespace _418FinalProject.Controllers
                 builder.Password = "Password1";
                 builder.InitialCatalog = "TestTaker";
 
+                int cat_exists = 0;
+                int next_ID = 0;
 
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     connection.Open();
 
-                    String sql = "SELECT MAX(CATEGORY_ID) FROM Question_Categories;";
-                    int next_ID = 0;
+                    String sql = "SELECT CATEGORY_ID FROM Question_Categories WHERE CATEGORY_NAME = '"+question.Category
+                        +"';";
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
                         command.Connection = connection;
 
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        cat_exists = Convert.ToInt32(command.ExecuteScalar());
+                    }
+                    connection.Close();
+
+                    if (cat_exists <= 0)
+                    {
+                        connection.Open();
+
+                        sql = "SELECT MAX(CATEGORY_ID) FROM Question_Categories;";
+
+                        using (SqlCommand command = new SqlCommand(sql, connection))
                         {
-                            while (reader.Read())
-                                next_ID = reader.GetInt32(0) + 1;
+                            command.Connection = connection;
+
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                    next_ID = reader.GetInt32(0) + 1;
+                            }
                         }
+                        connection.Close();
+
+                        sql = "INSERT INTO Question_Categories VALUES(@CATEGORY_ID,@CATEGORY_NAME);";
+
+                        connection.Open();
+
+                        using (SqlCommand command = new SqlCommand(sql, connection))
+                        {
+                            command.Connection = connection;
+                            command.Parameters.AddWithValue("@CATEGORY_ID", next_ID);
+                            command.Parameters.AddWithValue("@CATEGORY_NAME", question.Category);
+
+                            command.ExecuteNonQuery();
+                        }
+                        connection.Close();
                     }
-                    connection.Close();
-
-                    sql = "INSERT INTO Question_Categories VALUES(@CATEGORY_ID,@CATEGORY_NAME);";
-
-                    connection.Open();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    else
                     {
-                        command.Connection = connection;
-                        command.Parameters.AddWithValue("@CATEGORY_ID", next_ID);
-                        command.Parameters.AddWithValue("@CATEGORY_NAME", question.Category);
+                        connection.Open();
 
-                        command.ExecuteNonQuery();
+                        sql = "SELECT CATEGORY_ID FROM Question_Categories WHERE CATEGORY_NAME = '" + question.Category
+                            + "';";
+
+                        using (SqlCommand command = new SqlCommand(sql, connection))
+                        {
+                            command.Connection = connection;
+
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                    next_ID = reader.GetInt32(0);
+                            }
+                        }
+                        connection.Close();
                     }
-                    connection.Close();
-
 
                     connection.Open();
 
