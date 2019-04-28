@@ -72,6 +72,7 @@ namespace _418FinalProject.Controllers
             builder.InitialCatalog = "TestTaker";
 
             List<Question> qs = new List<Question>();
+            List<QuestionCheckedModel> qcm = new List<QuestionCheckedModel>();
 
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
@@ -84,7 +85,8 @@ namespace _418FinalProject.Controllers
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        while (reader.Read()) 
+                        {
                             qs.Add
                             (
                                 new Question
@@ -99,6 +101,18 @@ namespace _418FinalProject.Controllers
                                     Answer4Text = reader.GetString(7)
                                 }
                             );
+                            qcm.Add
+                                (
+
+                                new QuestionCheckedModel
+                                {
+                                    QuestionID = reader.GetInt32(0),
+                                    Category = Convert.ToString(reader.GetInt32(1)),
+                                    QuestionText = reader.GetString(3),
+                                }
+
+                                );
+                        }
                     }
                     connection.Close();
                 }
