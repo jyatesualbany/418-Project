@@ -63,3 +63,10 @@ namespace _418FinalProject
         }
     }
 }
+
+/*routes.MapRoute(
+                    name: "CreateTest",
+                    template: "/admintest/addtest/{test?}&{model?}",
+                    defaults: new {controller = "AdminTeset", action = "AddTest", id = ""}
+                     
+                    );*/

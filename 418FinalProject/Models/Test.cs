@@ -20,5 +20,7 @@ namespace _418FinalProject.Models
 
         [Display(Name ="Questions"), Required]
         public List<Question> Questions { get; set; }
+
+        public List<QuestionCheckedModel> SelectQuestions { get; set; } 
     }
 }

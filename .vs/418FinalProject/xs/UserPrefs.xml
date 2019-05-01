@@ -2,16 +2,16 @@
   <MonoDevelop.Ide.ItemProperties.418FinalProject PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="418FinalProject/Views/AdminTest/AddTest.cshtml">
     <Files>
-      <File FileName="418FinalProject/Controllers/QuestionController.cs" Line="1" Column="1" />
-      <File FileName="418FinalProject/Views/AdminTest/AddTest.cshtml" Line="59" Column="21" />
-      <File FileName="418FinalProject/Controllers/AdminTestController.cs" Line="109" Column="10" />
-      <File FileName="418FinalProject/Models/QuestionCheckedModel.cs" Line="15" Column="33" />
+      <File FileName="418FinalProject/Controllers/AdminTestController.cs" Line="128" Column="75" />
+      <File FileName="418FinalProject/Views/AdminTest/AddTest.cshtml" Line="90" Column="6" />
+      <File FileName="418FinalProject/Views/AdminTest/DebugTest.cshtml" Line="48" Column="52" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="418FinalProject" expanded="True">
             <Node name="418FinalProject" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">

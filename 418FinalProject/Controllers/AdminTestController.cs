@@ -86,7 +86,7 @@ namespace _418FinalProject.Controllers
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read()) 
-                        {
+                        {   
                             qs.Add
                             (
                                 new Question
@@ -101,6 +101,7 @@ namespace _418FinalProject.Controllers
                                     Answer4Text = reader.GetString(7)
                                 }
                             );
+
                             qcm.Add
                                 (
 
@@ -118,9 +119,27 @@ namespace _418FinalProject.Controllers
                 }
             }
             ViewData["Questions"] = qs;
+            ViewData["CheckQuestions"] = qcm;
 
-            return View(new Test());
+            return View(new Test {SelectQuestions = qcm});
         }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult AddTest([Bind("TestID, TestTitle, Questions, SelectQuestions")] Test test) 
+        {
+
+            if(test == null) { return NotFound(string.Format("Test is null")); }
+
+            if(test.SelectQuestions == null) { return NotFound(string.Format("Test Questions is null")); }
+
+            foreach(var item in test.SelectQuestions) 
+            {
+                if (!item.Checked) test.SelectQuestions.Remove(item);
+            }
+
+            return View("DebugTest", test);
+        }
+
 
     }
 }
