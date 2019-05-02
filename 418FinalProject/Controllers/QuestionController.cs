@@ -41,10 +41,15 @@ namespace _418FinalProject.Controllers
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
                 connection.Open();
-                String sql = "SELECT a.QUESTION_ID,b.CATEGORY_NAME,a.TRUE_FALSE,a.QUESTION_TEXT,a.ANS1,a.ANS2,a.ANS3,a.ANS4"
-                + " FROM Questions a, Question_Categories b"
-                + " LEFT JOIN Questions ON QUESTION_ID = b.CATEGORY_ID;";
+                //String sql = "SELECT a.QUESTION_ID,b.CATEGORY_NAME,a.TRUE_FALSE,a.QUESTION_TEXT,a.ANS1,a.ANS2,a.ANS3,a.ANS4"
+                //+ " FROM Questions a, Question_Categories b"
+                //+ " LEFT JOIN Questions ON QUESTION_ID = b.CATEGORY_ID;";
                 //int cat_id = 0;
+                String sql = "SELECT Questions.QUESTION_ID,Question_Categories.CATEGORY_NAME, "
+                + "Questions.TRUE_FALSE,Questions.QUESTION_TEXT,Questions.ANS1, "
+                + "Questions.ANS2,Questions.ANS3,Questions.ANS4 "
+                + "FROM Questions "
+                + "JOIN Question_Categories ON Questions.CATEGORY_ID = Question_Categories.CATEGORY_ID; ";
 
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
