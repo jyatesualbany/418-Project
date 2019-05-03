@@ -89,7 +89,7 @@ namespace _418FinalProject.Controllers
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        // int i = 8;
+                       
                         while (reader.Read())
 
                             tests.Add
