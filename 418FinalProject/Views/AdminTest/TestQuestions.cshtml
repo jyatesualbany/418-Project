@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Add Questions";
+    List<QuestionCheckedModel> selectQuestions = ViewData["Questions"] as List<QuestionCheckedModel>;
+}
+@using _418FinalProject.Models;
+@model Test;
+
+<h4>Test</h4>
+<hr />
+<!-- Test Form -->
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="TestQuestions" id="newTest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TestID" class="control-label"></label>
+                <input asp-for="TestID" class="form-control" type="hidden" />
+                <span asp-validation-for="TestID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestTitle" class="control-label"></label>
+                <input asp-for="TestTitle" class="form-control" readonly />
+                <span asp-validation-for="TestTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="Save" class="btn btn-primary" /><!-- hidden form button -->
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(question => selectQuestions.First().QuestionText)</td>
+            <td>@Html.DisplayNameFor(question => selectQuestions.First().Category)</td>
+            <td>@Html.DisplayNameFor(question => selectQuestions.First().Checked)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var question in selectQuestions)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(q => question.QuestionID, new { form = "newTest" })
+                    @Html.DisplayFor(q => question.QuestionText)
+                </td>
+                <td>
+                    @Html.DisplayFor(q => question.Category)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(q => question.Checked, new { id= question.QuestionID,form = "newTest" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<input type="hidden" id="sql" name="sql" form="newTest"/>
+<input type="button" value="Save" class="btn btn-primary" onclick="insert()">
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>function insert() {
+        var values = []
+        var id_s = document.forms['newTest'].elements['question.Checked'];
+        var length = id_s.length;
+
+        for (var i = 0; i < length; i++) {
+            if (id_s[i].checked) {
+                values.push(id_s[i].id)
+            }
+        }
+        var y = values.join(',')
+
+        document.getElementById("sql").value = y;
+        document.getElementById("newTest").submit();
+
+    }</script>

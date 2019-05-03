@@ -1,19 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Create Test";
-    List<QuestionCheckedModel> selectedQuestions = new List<QuestionCheckedModel>();
 }
 @using _418FinalProject.Models;
 @model Test;
 
 <h4>Test</h4>
 <hr />
+<!-- Test Form -->
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddTest" id="newTest">
+        <form asp-action="AddTest">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="TestID" class="control-label"></label>
-                <input asp-for="TestID" class="form-control" />
+                <input asp-for="TestID" class="form-control" type="hidden" />
                 <span asp-validation-for="TestID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -22,71 +22,15 @@
                 <span asp-validation-for="TestTitle" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Questions" class="control-label" ></label>
-                <input asp-for="Questions" class="control-label" type="hidden"/>
-                <span asp-validation-for="Questions" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SelectQuestions" class="control-label"></label>
-                <input asp-for="SelectQuestions" class="control-label"/>
-                <span asp-validation-for="SelectQuestions" class="text-danger"></span>
-
-            </div>
-            <div class="form-group">
-                <input type ="hidden" value="Save" class="btn btn-primary" /><!-- hidden form button -->
+                <input type="submit" value="Add Questions" class="btn btn-primary" /><!-- hidden form button -->
             </div>
         </form>
     </div>
 </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(q => Model.SelectQuestions.First().QuestionID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(q => Model.SelectQuestions.First().QuestionText)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.SelectQuestions)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QuestionID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QuestionText)
-                </td>
-                <td>
-                    @Html.CheckBoxFor(modelItem => item.Checked, new { @form = "newTest" })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<p id="itemCount"></p>
-<input type="button" value="Add Question" class="btn btn-primary" onclick="questionSelected()">
-<input type="submit" value="save" class="btn btn-primary" form="newTest"/> <!-- Primary submit button for form -->
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
-<script>
-    function questionSelected()
-    {
-        @foreach(var item in Model.SelectQuestions)
-        {
-            if(item.Checked)
-            {
-                selectedQuestions.Add(item);
-            }
-        }
 
-       document.getElementById("itemCount").innerHTML = @selectedQuestions.Count;
-    }
-</script>
 

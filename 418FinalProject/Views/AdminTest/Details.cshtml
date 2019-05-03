@@ -1,20 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Test Details";
+    string q_id = ViewData["Debugging"] as String;
 }
-
 @using _418FinalProject.Models;
 @model Test;
-
-@{
-    ViewData["Title"] = "Question Details";
-}
 
 <h1>Details</h1>
 
 <div>
-    <h4>Questions</h4>
+    <h4>Test </h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -28,20 +22,18 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TestTitle)
-        </dd>        
+        </dd>
     </dl>
 </div>
-
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(q => Model.SelectQuestions.First().QuestionID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(q => Model.SelectQuestions.First().QuestionText)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(q => Model.SelectQuestions.First().Category)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -49,15 +41,16 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.QuestionID)
+                    @Html.DisplayFor(q => item.QuestionText)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.QuestionText)
+                    @Html.DisplayFor(q => item.Category)
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<p>@q_id</p>
 <div>
     <a asp-action="EditQuestion" asp-route-id="@Model.TestID">Edit</a> |
     <a asp-action="DeleteQuestion" asp-route-id="@Model.TestID">Delete</a> |

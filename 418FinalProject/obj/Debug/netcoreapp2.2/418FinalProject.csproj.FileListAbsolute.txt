@@ -161,4 +161,5 @@ C:/Users/wdick/Desktop/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/418Fi
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/418FinalProject.dll
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/418FinalProject.pdb
 /Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/418FinalProject.csproj.CopyComplete
-/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/AdminTest/DebugTest.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/AdminTest/TestQuestions.g.cshtml.cs
+/Users/akeemshane/Documents/Documents - Akeem’s MacBook Pro/VisualStudio/418-Project/418FinalProject/obj/Debug/netcoreapp2.2/Razor/Views/AdminTest/Details.g.cshtml.cs

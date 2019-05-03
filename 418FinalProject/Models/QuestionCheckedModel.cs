@@ -18,7 +18,7 @@ namespace _418FinalProject.Models
         [Display(Name = "Question Text")]
         public string QuestionText { get; set; }
 
-        [Display(Name = "Checked")]
+        [Display(Name = "Selected")]
         public bool Checked { get; set; }
     }
 }
