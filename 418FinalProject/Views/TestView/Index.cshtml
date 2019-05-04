@@ -1,0 +1,43 @@
+@model IEnumerable<_418FinalProject.Models.Test_Titles>
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h1>Test</h1>
+
+<style>
+    .admin {
+        display: inline-block;
+        padding: 5px 50px 5px 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<h2> Choose a test to take:</h2>
+
+<table class="table" style="text-align: center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    <a asp-action="Select" asp-route-id="@item.Test_ID">Select</a> |
+                    <a asp-action="Result" asp-route-id="@item.Test_ID">Result</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

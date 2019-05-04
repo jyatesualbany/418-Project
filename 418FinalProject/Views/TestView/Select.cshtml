@@ -1,0 +1,22 @@
+@model _418FinalProject.Models.Test_Titles
+
+@{
+    ViewData["Title"] = "Test Selected";
+}
+
+<h1></h1>
+
+<div>
+    <h4>Test</h4>
+    <hr />
+    <p> Would you like to take test: </p>
+    <dl class="row">
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="TestPage">Take Test</a> | 
+    <a asp-action="Index">Back to List</a>
+</div>
