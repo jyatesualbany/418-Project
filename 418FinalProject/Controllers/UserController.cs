@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using _418FinalProject.Models;
+using System.Data.SqlClient;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,20 +15,54 @@ namespace _418FinalProject.Controllers
     {
         private readonly DataBankContext _context;
 
-        public UserController(DataBankContext context) 
+        public UserController(DataBankContext context)
         {
             _context = context;
         }
 
         // GET: /<controller>/
-        public async Task<IActionResult> Index() 
+        public IActionResult Index()
         {
 
-            return View(await _context.Users.ToListAsync());
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "testtaker.database.windows.net";
+            builder.UserID = "user";
+            builder.Password = "Password1";
+            builder.InitialCatalog = "TestTaker";
+
+            List<User> users = new List<User>();
+
+            using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+            {
+                connection.Open();
+                String sql = "SELECT * FROM Users;";
+
+
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                            users.Add
+                            (
+                                new User
+                                {
+                                    UserID = reader.GetInt32(0),
+                                    Username = reader.GetString(1),
+                                    Password = reader.GetString(2),
+                                    Type = reader.GetBoolean(3)
+                                }
+                            );
+                    }
+                    connection.Close();
+                }
+            }
+            return View(users);
         }
 
         // GET: Movies/Details/{string}
-        public async Task<IActionResult> Details(int? id )
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound(string.Format("Name is null"));
 
@@ -39,26 +75,65 @@ namespace _418FinalProject.Controllers
         }
 
         //Page 
-        //GET: /admin/AddQuestion
+        //GET: /admin/AddUser
         public IActionResult AddUser()
         {
             return View(new User());
         }
 
-        //POST: /admin/AddQuestion/
+        //POST: /admin/AddUser/
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddUser([Bind("UserID,Username,Password,Type")] User user)
+        public IActionResult AddUser([Bind("UserID,Username,Password,Type")] User user)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "testtaker.database.windows.net";
+                builder.UserID = "user";
+                builder.Password = "Password1";
+                builder.InitialCatalog = "TestTaker";
+
+                int next_ID = 0;
+
+                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                {
+
+                    connection.Open();
+
+                    String  sql = "SELECT MAX(User_ID) FROM Users;";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Connection = connection;
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                                next_ID = reader.GetInt32(0) + 1;
+                        }
+                    }
+
+                    sql = "INSERT INTO Users VALUES(@UserID, @Username, @Password, @Admin);";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Connection = connection;
+
+
+                        command.Parameters.AddWithValue("@UserID", next_ID);
+                        command.Parameters.AddWithValue("@Username", user.Username);
+                        command.Parameters.AddWithValue("@Password", user.Password);
+                        command.Parameters.AddWithValue("@Admin", user.Type);
+
+                        command.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                }
                 return RedirectToAction(nameof(Index));
             }
-
             return View(user);
         }
-        //GET: /question/EditQuestion/{id?}
+        //GET: /User/EditUser/{id?}
         public async Task<IActionResult> EditUser(int? id)
         {
 
@@ -71,7 +146,7 @@ namespace _418FinalProject.Controllers
             return View(user);
         }
 
-        //POST: /question/EditQuestion/{id?}
+        //POST: /User/EditUser/{id?}
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> EditUser(int id, [Bind("UserID,Username,Password,Type")] User user)
         {
@@ -79,7 +154,7 @@ namespace _418FinalProject.Controllers
             if (id != user.UserID)
             {
 
-                var msg = string.Format("ID {0} is null",id);
+                var msg = string.Format("ID {0} is null", id);
 
                 return NotFound(msg);
 
