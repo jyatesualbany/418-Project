@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +9,7 @@ using _418FinalProject.Models;
 using System.Data.SqlClient;
 using System;
 using System.Data;
+using System.Web;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,6 +18,7 @@ namespace _418FinalProject.Controllers
     public class AdminTestController : Controller
     {
         //private readonly SqlConnectionStringBuilder builder;
+        public Test tempTest;
 
         public AdminTestController()
         {
@@ -65,14 +67,28 @@ namespace _418FinalProject.Controllers
         //GET: /admintest/addtest
         public IActionResult AddTest()
         {
+            return View(new Test());
+        }
+
+        //Page 
+        //POST: /admintest/addtest/
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult AddTest([Bind("TestID, TestTitle")] Test test)
+        {
+            return RedirectToAction(nameof(TestQuestions), test);
+        }
+
+        //Page 
+        //GET: /admintest/testquestions
+        public IActionResult TestQuestions(Test test)
+        {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "testtaker.database.windows.net";
             builder.UserID = "user";
             builder.Password = "Password1";
             builder.InitialCatalog = "TestTaker";
 
-            List<Question> qs = new List<Question>();
-
+            List<QuestionCheckedModel> qcm = new List<QuestionCheckedModel>();
 
             using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
             {
@@ -85,28 +101,57 @@ namespace _418FinalProject.Controllers
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
-                            qs.Add
-                            (
-                                new Question
+                        {
+                            qcm.Add
+                                (
+
+                                new QuestionCheckedModel
                                 {
                                     QuestionID = reader.GetInt32(0),
                                     Category = Convert.ToString(reader.GetInt32(1)),
-                                    TrueFalse = reader.GetBoolean(2),
                                     QuestionText = reader.GetString(3),
-                                    Answer1Text = reader.GetString(4),
-                                    Answer2Text = reader.GetString(5),
-                                    Answer3Text = reader.GetString(6),
-                                    Answer4Text = reader.GetString(7)
+                                    Checked = false
                                 }
-                            );
+                                );
+                        }
                     }
                     connection.Close();
                 }
             }
-            ViewData["Questions"] = qs;
+            ViewData["Questions"] = qcm;
 
-            return View(new Test());
+            return View(test);
         }
 
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult TestQuestions()
+        {
+            var nvc = Request.Form;
+
+            Test test;
+            string q_id;
+            try
+            {
+                test = new Test
+                {
+                    TestID = Int32.Parse(nvc["TestID"]),
+                    TestTitle = nvc["TestTitle"],
+                    SelectQuestions = new List<QuestionCheckedModel>()
+                };
+
+                q_id = nvc["sql"];
+            }
+            catch (Exception e)
+            {
+                return NotFound(e);
+            }
+
+
+
+            ViewData["Debugging"] = q_id;
+
+
+            return View("Details", test);
+        }
     }
 }
