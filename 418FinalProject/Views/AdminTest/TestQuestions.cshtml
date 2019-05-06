@@ -38,8 +38,13 @@
         </tr>
     </thead>
     <tbody>
+<<<<<<< HEAD
         @foreach(var question in selectQuestions)
         {
+=======
+        @foreach (var question in selectQuestions)
+        {
+>>>>>>> Julie
             <tr>
                 <td>
                     @Html.HiddenFor(q => question.QuestionID, new { form = "newTest" })
@@ -49,14 +54,22 @@
                     @Html.DisplayFor(q => question.Category)
                 </td>
                 <td>
+<<<<<<< HEAD
                     @Html.CheckBoxFor(q => question.Checked, new { id= question.QuestionID,form = "newTest" })
+=======
+                    @Html.CheckBoxFor(q => question.Checked, new { id = question.QuestionID, form = "newTest" })
+>>>>>>> Julie
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
+<<<<<<< HEAD
 <input type="hidden" id="sql" name="sql" form="newTest"/>
+=======
+<input type="hidden" id="sql" name="sql" form="newTest" />
+>>>>>>> Julie
 <input type="button" value="Save" class="btn btn-primary" onclick="insert()">
 
 <div>
@@ -67,15 +80,23 @@
         var values = []
         var id_s = document.forms['newTest'].elements['question.Checked'];
         var length = id_s.length;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Julie
         for (var i = 0; i < length; i++) {
             if (id_s[i].checked) {
                 values.push(id_s[i].id)
             }
         }
         var y = values.join(',')
+<<<<<<< HEAD
 
         document.getElementById("sql").value = y;
         document.getElementById("newTest").submit();
 
+=======
+        document.getElementById("sql").value = y;
+        document.getElementById("newTest").submit();
+>>>>>>> Julie
     }</script>

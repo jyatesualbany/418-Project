@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -75,12 +75,20 @@ namespace _418FinalProject.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult AddTest([Bind("TestID, TestTitle")] Test test)
         {
+<<<<<<< HEAD
             return RedirectToAction(nameof(TestQuestions),test);
+=======
+            return RedirectToAction(nameof(TestQuestions), test);
+>>>>>>> Julie
         }
 
         //Page 
         //GET: /admintest/testquestions
+<<<<<<< HEAD
         public IActionResult TestQuestions(Test test) 
+=======
+        public IActionResult TestQuestions(Test test)
+>>>>>>> Julie
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "testtaker.database.windows.net";
@@ -124,7 +132,11 @@ namespace _418FinalProject.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public IActionResult TestQuestions() 
+=======
+        public IActionResult TestQuestions()
+>>>>>>> Julie
         {
             var nvc = Request.Form;
 
@@ -143,8 +155,13 @@ namespace _418FinalProject.Controllers
             }
             catch (Exception e)
             {
+<<<<<<< HEAD
                 return NotFound(e);            
                 }
+=======
+                return NotFound(e);
+            }
+>>>>>>> Julie
 
 
 

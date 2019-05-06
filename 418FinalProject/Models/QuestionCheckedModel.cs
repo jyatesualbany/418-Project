@@ -21,4 +21,8 @@ namespace _418FinalProject.Models
         [Display(Name = "Selected")]
         public bool Checked { get; set; }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Julie

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿@model IEnumerable<_418FinalProject.Models.UserGrades>
 
 @{
@@ -40,3 +41,47 @@
 }
     </tbody>
 </table>
+=======
+﻿@model IEnumerable<_418FinalProject.Models.UserGrades>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>User Grades</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                User ID
+            </th>
+            <th>
+                Test ID
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Grade)</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserRefName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestRefID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+               
+                <a asp-action="Details" asp-route-id="@item.UserRefName">Details</a>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+>>>>>>> Julie
