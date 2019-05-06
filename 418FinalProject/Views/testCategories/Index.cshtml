@@ -1,0 +1,48 @@
+﻿@* test Categories Index View *@
+
+<h2>Test Categories</h2>
+@{
+    ViewData["Title"] = "Choose a Test Category";
+}
+
+@using _418FinalProject.Models;
+@model testCategoriesModel;
+<style>
+    .admin {
+        display: inline-block;
+        padding: 5px 50px 5px 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<div style="text-align: center">
+    <a class="admin"><h2>Choose a test category:</h2></a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tests[0].Test_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tests[0].Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tests)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Test_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
